@@ -14,9 +14,7 @@ declare const CustomElement: ICustomElement;
 
 interface IDetailsValue {}
 
-interface IDetailsConfig {
-  key: string;
-}
+interface IDetailsConfig {}
 
 interface IFontAwesomeIconsProps {}
 
@@ -32,7 +30,7 @@ export const FontAwesomeIcons: RoutedFC<IFontAwesomeIconsProps> = () => {
   const [enabled, setEnabled] = useState(true);
 
   const customElementRef = useRef<HTMLDivElement>(null);
-  const customElementConfig = useRef<IDetailsConfig>({ key: '' });
+  const customElementConfig = useRef<IDetailsConfig>({});
 
   useEffect(() => {
     const initCustomElement = (element: Element) => {
