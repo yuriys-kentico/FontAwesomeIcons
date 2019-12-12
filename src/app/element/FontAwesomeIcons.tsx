@@ -1,4 +1,4 @@
-import './fontAwesomeIcons.css';
+import './FontAwesomeIcons.css';
 
 import React, { FC, useEffect, useRef, useState } from 'react';
 
