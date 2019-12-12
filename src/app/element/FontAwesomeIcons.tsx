@@ -188,7 +188,7 @@ export const FontAwesomeIcons: RoutedFC<IFontAwesomeIconsProps> = () => {
                         value={searchValue}
                         placeholder='Type a search term here...'
                       />
-                      <span title='Clear' onClick={_ => setSearchValue('')}>
+                      <span title='Clear' onClick={_ => search('')}>
                         {searchValue === '' ? '' : '×'}
                       </span>
                     </span>

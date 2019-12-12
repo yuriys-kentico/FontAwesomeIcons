@@ -1,5 +1,5 @@
 import React, { FC, MouseEventHandler, useRef } from 'react';
-import { DropTargetMonitor, useDrag, useDrop, XYCoord } from 'react-dnd';
+import { DragSourceMonitor, DropTargetMonitor, useDrag, useDrop, XYCoord } from 'react-dnd';
 
 import { IIcon } from './FontAwesomeIcons';
 
@@ -18,7 +18,7 @@ interface DragItem {
   icon: IIcon;
 }
 
-export const DraggableIcon: FC<IDraggableIconProps> = ({ icon, index, dragIcon }) => {
+export const DraggableIcon: FC<IDraggableIconProps> = ({ icon, index, dragIcon, onClick }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [, drop] = useDrop({
@@ -75,7 +75,7 @@ export const DraggableIcon: FC<IDraggableIconProps> = ({ icon, index, dragIcon }
 
   const [{ isDragging }, drag] = useDrag({
     item: { type: iconType, icon, index },
-    collect: (monitor: any) => ({
+    collect: (monitor: DragSourceMonitor) => ({
       isDragging: monitor.isDragging()
     })
   });
@@ -93,6 +93,7 @@ export const DraggableIcon: FC<IDraggableIconProps> = ({ icon, index, dragIcon }
         opacity: isDragging ? 0.5 : 1
       }}
       className={`icon selected ${getClass(icon)}`}
+      onClick={onClick}
     />
   );
 };
