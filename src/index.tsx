@@ -1,6 +1,8 @@
 import './app/App.css';
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
+import 'typeface-source-sans-pro';
+import './fontawesome/css/all.min.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
