@@ -1,4 +1,4 @@
-import './app/app.css';
+import './app/App.css';
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
