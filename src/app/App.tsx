@@ -1,15 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import { boundary, useError } from 'react-boundary';
-import { Helmet } from 'react-helmet';
-import { Loader } from 'semantic-ui-react';
 
 import { Router } from '@reach/router';
 
-import { errors, header } from '../terms.en-us.json';
-import { routes } from './routes';
+import { errors } from '../terms.en-us.json';
 
-const Frontend = lazy(() => import('./frontend/Frontend').then(module => ({ default: module.Frontend })));
-const Details = lazy(() => import('./details/Details').then(module => ({ default: module.Details })));
+const FontAwesomeIcons = lazy(() =>
+  import('./element/FontAwesomeIcons').then(module => ({ default: module.FontAwesomeIcons }))
+);
 const Error = lazy(() => import('./shared/Error').then(module => ({ default: module.Error })));
 
 export const App = boundary(() => {
@@ -21,14 +19,10 @@ export const App = boundary(() => {
 
   return (
     <>
-      <Helmet titleTemplate={`%s | ${header.header}`} defaultTitle={header.header}>
-        <meta name='description' content={header.description} />
-      </Helmet>
-      <Suspense fallback={<Loader active size='massive' />}>
+      <Suspense fallback={''}>
         <Router>
-          <Frontend path='*' />
-          <Details path={routes.details} />
-          <Error path={routes.error} default message={errors.notFound} />
+          <FontAwesomeIcons path='/' />
+          <Error path='/error' default message={errors.notFound} />
         </Router>
       </Suspense>
     </>

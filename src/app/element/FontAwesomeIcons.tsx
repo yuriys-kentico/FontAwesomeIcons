@@ -1,4 +1,4 @@
-import './details.css';
+import './fontAwesomeIcons.css';
 
 import React, { FC, useEffect, useRef, useState } from 'react';
 
@@ -6,6 +6,7 @@ import { navigate } from '@reach/router';
 
 import { kenticoKontent } from '../../appSettings.json';
 import { loadModule } from '../../utilities/modules';
+import { RoutedFC } from '../../utilities/routing';
 import { Element, ICustomElement } from './customElement';
 
 // Expose access to Kentico custom element API
@@ -17,11 +18,11 @@ interface IDetailsConfig {
   key: string;
 }
 
-interface IDetailsProps {}
+interface IFontAwesomeIconsProps {}
 
 const defaultDetailsValue: IDetailsValue = { customer: '', requester: '' };
 
-export const Details: FC<IDetailsProps> = () => {
+export const FontAwesomeIcons: RoutedFC<IFontAwesomeIconsProps> = () => {
   if (window.self === window.top) {
     navigate('/');
   }
